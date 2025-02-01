@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import { cn } from "@/libs/utlis/cn";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +35,7 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-4 lg:px-6">
-        {/* Logo */}
+        {/* TODO: Logo */}
         <Link
           href="/"
           className={cn(
@@ -46,40 +47,29 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8 ">
           {/* Solutions Dropdown */}
           <div className="relative group">
             <button
               onMouseEnter={() => setIsSolutionsOpen(true)}
-              onMouseLeave={() => setIsSolutionsOpen(false)}
+              // onMouseLeave={() => setIsSolutionsOpen(false)}
+              onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
               className={cn(
                 "flex items-center gap-1 hover:underline",
                 isScrolled ? "text-gray-900" : "text-white"
               )}
             >
               Solutions
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <ChevronDown />
             </button>
 
             {isSolutionsOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
-                {["Option 1", "Option 2", "Option 3"].map((option) => (
+                {["AnySaas", "AnyBass", "AnyPass"].map((option) => (
                   <Link
                     key={option}
-                    href="#"
-                    className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
+                    href={`/${option.toLocaleLowerCase()}`}
+                    className="block px-4 py-2 text-gray-900 hover:bg-gray-100 border-b border-gray-200 last:border-0"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     {option}
@@ -91,7 +81,7 @@ const Navbar = () => {
 
           {/* Other Links */}
           <Link
-            href="#"
+            href="/services"
             className={cn(
               "hover:underline",
               isScrolled ? "text-gray-900" : "text-white"
@@ -100,7 +90,7 @@ const Navbar = () => {
             Services
           </Link>
           <Link
-            href="#"
+            href="/about-us"
             className={cn(
               "hover:underline",
               isScrolled ? "text-gray-900" : "text-white"
@@ -123,13 +113,18 @@ const Navbar = () => {
         </div>
 
         {/* Contact Button - Desktop */}
-        <div className="hidden lg:block">
-          <Link
-            href="#"
-            className="bg-cyan-400 text-white px-4 py-2 rounded hover:bg-cyan-500 transition-colors"
+        <div className="hidden lg:block ">
+          <Button
+            size="lg"
+            className={cn(
+              "bg-transparent hover:bg-white hover:text-black  text-white px-4 py-2 rounded outline-1 border border-white transition-colors duration-1000 text-lg",
+              isScrolled ? "bg-[#FE8B53] hover:bg-[#FE8B53]" : ""
+            )}
           >
-            Contact Us
-          </Link>
+            <Link href="/contact-us" className="flex items-center gap-2">
+              Contact Us <ChevronRight className="font-bold" />
+            </Link>
+          </Button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -158,30 +153,20 @@ const Navbar = () => {
                 className="flex items-center gap-2 text-white w-full"
               >
                 Solutions
-                <svg
+                <ChevronDown
                   className={cn(
                     "w-4 h-4 transition-transform",
-                    isSolutionsOpen ? "rotate-180" : ""
+                    isSolutionsOpen && "rotate-180"
                   )}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                />
               </button>
 
               {isSolutionsOpen && (
                 <div className="mt-2 ml-4 space-y-2">
-                  {["Option 1", "Option 2", "Option 3"].map((option) => (
+                  {["AnySaas", "AnyBass", "AnyPass"].map((option) => (
                     <Link
                       key={option}
-                      href="#"
+                      href={`/${option.toLocaleLowerCase()}`}
                       className="block text-white hover:text-gray-900"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -194,14 +179,14 @@ const Navbar = () => {
 
             {/* Other Links */}
             <Link
-              href="#"
+              href="/services"
               className="block py-2 text-white hover:underline"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
-              href="#"
+              href="/about-us"
               className="block py-2 text-white hover:underline"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -216,10 +201,11 @@ const Navbar = () => {
             {/* Contact Button - Mobile */}
             <Link
               href="#"
-              className="mt-4 block bg-cyan-400 text-white px-4 py-2 rounded text-center hover:bg-cyan-500 transition-colors"
+              className="flex items-center mt-4 justify-center gap-2 bg-[#FE8B53] text-white px-4 py-2 rounded text-center hover:bg-[#FE8B53] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact Us
+              <ChevronRight />
             </Link>
           </div>
         </div>

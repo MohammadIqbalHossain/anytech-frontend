@@ -5,6 +5,9 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import heroImage from "../../../../public/Assets/hero-image .jpg";
 import { WaveLines } from "./web-lines";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 export function HeroSection() {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -34,7 +37,7 @@ export function HeroSection() {
 
       {/* Curved bottom shape */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-white"
+        className="absolute bottom-0 left-0 right-0 h-32 bg-[#EEEFF2]"
         style={{
           clipPath: "polygon(0 100%, 100% 100%, 100% 0)",
         }}
@@ -55,9 +58,14 @@ export function HeroSection() {
               distributed banking solution that powers transformation
             </p>
 
-            <button className="mt-8 bg-gradient-to-r from-[#FF7A50] to-[#FF6B3D] text-white px-6 py-3 rounded-lg hover:from-[#FF6B3D] hover:to-[#FF5B2A] transition-all duration-300 transform hover:scale-105">
-              Reach Out to Us
-            </button>
+            <Button
+              size="lg"
+              className="bg-[#FE8B53] hover:bg-[#c97951]  text-white px-6 py-4 rounded transition-colors duration-1000 text-lg mt-10 "
+            >
+              <Link href="/contact-us" className="flex items-center gap-2">
+                Reach out to us <ChevronRight className="font-bold" />
+              </Link>
+            </Button>
           </div>
 
           {/* Image positioned on the left */}
