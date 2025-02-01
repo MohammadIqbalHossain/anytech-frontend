@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { inter, montserrat } from "./ui/fonts";
+import { montserrat } from "./ui/fonts";
 import Footer from "./components/Global/footer";
 import Navbar from "./components/Global/navbar";
 
@@ -16,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.className} first-line:${inter.className} antialiased`}
-      >
+      <body className={`${montserrat.className} antialiased`}>
         <Navbar />
         {children}
         <Footer />
