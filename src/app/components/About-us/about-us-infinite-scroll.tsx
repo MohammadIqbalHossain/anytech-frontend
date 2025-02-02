@@ -18,6 +18,7 @@ export default function AboutUsInfiniteScroll() {
         </span>{" "}
         to transform in a digital-first world.
       </div>
+      {/* Using infinite logo scroll here */}
       <InfiniteLogoScroll />
     </div>
   );

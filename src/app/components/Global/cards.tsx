@@ -21,12 +21,12 @@ const Cards: FC<ICards> = ({ _DATA, className, innerClassName }) => {
           key={index}
           className={cn(
             "flex flex-col space-y-8 mx-2 max-w-[400px] bg-[#F8FCFF] rounded-lg p-8 my-5",
-            innerClassName
+            innerClassName // to change stylign as it's needed in different cards.
           )}
         >
           <div
             className="flex items-center justify-center w-10 h-10 text-center rounded-full"
-            style={{ backgroundColor: _.iconBackground }}
+            style={{ backgroundColor: _.iconBackground }} //Icon background color
           >
             <_.icon />
           </div>

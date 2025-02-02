@@ -1,7 +1,7 @@
 "use client";
 
 import { StaticImageData } from "next/image";
-import futureFinanceImg from "../../../../public/Assets/finance.avif";
+import SectionIntroImg from "../../../../public/Assets/finance.avif";
 import weblinesDesktop4 from "../../../../public/Assets/backgrounds/WaveLinesDesktop4.svg";
 import ctaMobileLine from "../../../../public/Assets/backgrounds/ctaMobileWaveLines.svg";
 import { FloatingFrame } from "./floating-theme";
@@ -16,12 +16,12 @@ interface IFinace {
   imageDescription?: string;
 }
 
-export default function FutureFinance({
+export default function SectionInro({
   subHeader,
   header,
   descriptionParaOne,
   descriptionParaTwo,
-  frameImage = futureFinanceImg,
+  frameImage = SectionIntroImg,
 }: IFinace) {
   return (
     <div

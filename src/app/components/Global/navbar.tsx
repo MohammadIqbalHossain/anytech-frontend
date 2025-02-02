@@ -27,6 +27,12 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const routes = [
+    { name: "AnySaas", path: "/anysass" },
+    { name: "AnyBass", path: "/anybass" },
+    { name: "AnyPass", path: "/anypass" },
+  ];
+
   return (
     <nav
       className={cn(
@@ -65,14 +71,14 @@ const Navbar = () => {
 
             {isSolutionsOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
-                {["AnySaas", "AnyBass", "AnyPass"].map((option) => (
+                {routes.map((route) => (
                   <Link
-                    key={option}
-                    href={`/${option.toLocaleLowerCase()}`}
+                    key={route.name}
+                    href={route.path}
                     className="block px-4 py-2 text-gray-900 hover:bg-gray-100 border-b border-gray-200 last:border-0"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
-                    {option}
+                    {route.name}
                   </Link>
                 ))}
               </div>
@@ -163,14 +169,14 @@ const Navbar = () => {
 
               {isSolutionsOpen && (
                 <div className="mt-2 ml-4 space-y-2">
-                  {["AnySaas", "AnyBass", "AnyPass"].map((option) => (
+                  {routes.map((route) => (
                     <Link
-                      key={option}
-                      href={`/${option.toLocaleLowerCase()}`}
+                      key={route.name}
+                      href={route.path}
                       className="block text-white hover:text-gray-900"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      {option}
+                      {route.name}
                     </Link>
                   ))}
                 </div>

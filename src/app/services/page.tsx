@@ -1,9 +1,15 @@
 import Cards from "../components/Global/cards";
 import SectionHeader from "../components/Global/section-header";
-import FutureFinance from "../components/Home/future-finance";
+import SectionIntro from "../components/Home/section-intro";
 import SolutionsSection from "../components/Services/solutiions";
 import InfiniteLogoScroll from "../components/Services/infinite-scroll-logos";
 import { SERVICES_CARDS_CONSULT, SERVICES_CARDS_IMPLEMENT } from "@/libs/data";
+import { Banner } from "../components/About-us/our-mission";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services",
+};
 
 export default function Services() {
   return (
@@ -14,7 +20,7 @@ export default function Services() {
         description="Enabling financial institutions to create unparalleled customer experiences"
       />
       {/* Introduction what we do */}
-      <FutureFinance
+      <SectionIntro
         subHeader="What We Do"
         header="The power of data"
         descriptionParaOne="In today's rapidly evolving financial landscape, banks and financial institutions face unprecedented challenges. At AnyTech, we understand the critical need for continuous innovation and strategic decision-making in order to thrive."
@@ -28,7 +34,7 @@ export default function Services() {
         innerClassName="border border-blue-200 bg-white hover:bg-blue-50 transiton duration-500 rounded-xl"
       />
       {/* The consult */}
-      <FutureFinance
+      <SectionIntro
         subHeader="Taking the First Step"
         header="Consult"
         descriptionParaOne="Taking the leap towards digital transformation with the ambition of delivering augmented value in financial services can be daunting."
@@ -37,8 +43,9 @@ export default function Services() {
           "https://cdn.sanity.io/images/6jywt20u/production/75de4e417de603ce210bea0f109e45a9e37d9a23-1206x816.png?w=640&auto=format"
         }
       />
+      <Banner />
 
-      <FutureFinance
+      <SectionIntro
         subHeader="seamless execution"
         header="Implement"
         descriptionParaOne="Ensuring sustainable success stems from the ability to seamlessly execute your digital transformation strategies. Combining deep technological expertise and a proven track record, we design and implement custom solutions for financial institutions that drive long-term success."

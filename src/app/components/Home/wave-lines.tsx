@@ -1,237 +1,147 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import weblineDesktop1 from "../../../../public/Assets/backgrounds/WaveLinesDesktop1.svg";
 import weblineDesktop2 from "../../../../public/Assets/backgrounds/WaveLinesDesktop2.svg";
-import weblineDesktop3 from "../../../../public/Assets/backgrounds/WaveLinesDesktop3.svg";
 import weblineDesktop4 from "../../../../public/Assets/backgrounds/WaveLinesDesktop4.svg";
 import weblineMobile1 from "../../../../public/Assets/backgrounds/WaveLinesMobile1.svg";
 import weblineMobile2 from "../../../../public/Assets/backgrounds/WaveLinesMobile2.svg";
 import ctalineMobileLine from "../../../../public/Assets/backgrounds/ctaMobileWaveLines.svg";
 
-export function WaveLines() {
+interface WaveLinesProps {
+  colors?: WaveLineColors;
+}
+
+export interface WaveLineColors {
+  primary: string;
+  secondary: string;
+  accent: string;
+  background: string;
+  bottomLine: string;
+}
+
+export interface SectionHeaderProps {
+  subtitle?: string;
+  title: string;
+  description?: string;
+  colors?: WaveLineColors;
+  alignment?: "left" | "center";
+}
+
+export function WaveLines({}: WaveLinesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const waveRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [isMounted, setIsMounted] = useState(false);
+  const isInView = useInView(containerRef, { once: true });
+  const controls = useAnimation();
 
   useEffect(() => {
-    setIsMounted(true);
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
 
-    if (!isMounted) return;
-
-    const waves = waveRefs.current.filter(Boolean) as HTMLDivElement[];
-
-    gsap.fromTo(
-      waves,
-      { opacity: 0, scale: 0.95 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.5,
-        stagger: 0.15,
-        ease: "power2.out",
-      }
-    );
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-
-      const { clientX, clientY } = e;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = (clientX - rect.left) / rect.width - 0.5;
-      const y = (clientY - rect.top) / rect.height - 0.5;
-
-      waves.forEach((wave, index) => {
-        const speed = 0.8 - index * 0.15;
-        gsap.to(wave, {
-          x: x * 20 * speed,
-          y: y * 20 * speed,
-          duration: 1.2,
-          ease: "power2.out",
-        });
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [isMounted]);
-
-  // Function to set refs remains the same
-  const setWaveRef = (index: number) => (el: HTMLDivElement | null) => {
-    waveRefs.current[index] = el;
+  const lineVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1.5, ease: "easeOut" },
+    },
+    hover: (custom: number) => ({
+      x: custom * 15,
+      y: custom * 8,
+      transition: { duration: 1, ease: "easeOut" },
+    }),
   };
 
-  // Initial render with static waves
-  if (!isMounted) {
-    return (
-      <div className="absolute inset-0 overflow-hidden opacity-0 bg-[#584747]">
-        {/* Desktop wave lines */}
-        <div className="hidden lg:block">
-          <div className="absolute inset-0">
-            <Image
-              src={weblineDesktop1}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0">
-            <Image
-              src={weblineDesktop4}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0">
-            <Image
-              src={weblineDesktop2}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0">
-            <Image
-              src={weblineDesktop3}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0">
-            <Image
-              src={weblineDesktop4}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Mobile wave lines */}
-        <div className="lg:hidden">
-          <div className="absolute inset-0">
-            <Image
-              src={weblineMobile1}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0">
-            <Image
-              src={weblineMobile2}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0">
-            <Image
-              src={ctalineMobileLine}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Animated version
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden">
-      {/* Desktop wave lines */}
+    <motion.div
+      ref={containerRef}
+      className="absolute inset-0 overflow-hidden"
+      animate={controls}
+      initial="hidden"
+      whileHover="hover"
+    >
+      {/* Desktop Lines */}
       <div className="hidden lg:block">
-        <div ref={setWaveRef(0)} className="absolute inset-0">
-          <Image
-            src={weblineDesktop1}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div ref={setWaveRef(1)} className="absolute inset-0">
-          <Image
-            src={weblineDesktop4}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div ref={setWaveRef(2)} className="absolute inset-0">
-          <Image
-            src={weblineDesktop2}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div ref={setWaveRef(3)} className="absolute inset-0">
-          <Image
-            src={weblineDesktop3}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div ref={setWaveRef(4)} className="absolute inset-0">
-          <Image
-            src={weblineDesktop4}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+        {[
+          {
+            url: weblineDesktop1,
+            delay: 0,
+            opacity: 0.4,
+          },
+          {
+            url: weblineDesktop4,
+            delay: 0.1,
+            opacity: 0.5,
+          },
+          {
+            url: weblineDesktop2,
+            delay: 0.2,
+            opacity: 0.6,
+          },
+        ].map((line, index) => (
+          <motion.div
+            key={index}
+            className="absolute inset-0"
+            variants={lineVariants}
+            custom={index - 1}
+            style={{
+              opacity: line.opacity,
+              mixBlendMode: "multiply",
+            }}
+          >
+            <Image
+              src={line.url || "/placeholder.svg"}
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+        ))}
       </div>
 
-      {/* Mobile wave lines */}
+      {/* Mobile Lines */}
       <div className="lg:hidden">
-        <div ref={setWaveRef(2)} className="absolute inset-0">
-          <Image
-            src={weblineMobile1}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div ref={setWaveRef(3)} className="absolute inset-0">
-          <Image
-            src={weblineMobile2}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div ref={setWaveRef(4)} className="absolute inset-0">
-          <Image
-            src={ctalineMobileLine}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+        {[
+          {
+            url: weblineMobile1,
+            delay: 0,
+            opacity: 0.4,
+          },
+          {
+            url: weblineMobile2,
+            delay: 0.1,
+            opacity: 0.5,
+          },
+          {
+            url: ctalineMobileLine,
+            delay: 0.2,
+            opacity: 0.6,
+          },
+        ].map((line, index) => (
+          <motion.div
+            key={index}
+            className="absolute inset-0"
+            variants={lineVariants}
+            custom={index - 1}
+            style={{
+              opacity: line.opacity,
+              mixBlendMode: "multiply",
+            }}
+          >
+            <Image
+              src={line.url || "/placeholder.svg"}
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

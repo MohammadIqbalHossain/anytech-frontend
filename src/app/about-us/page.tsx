@@ -1,10 +1,15 @@
 import { ABOUT_US_CARDS_STORY, ABOUT_US_CARDS_VALUES } from "@/libs/data";
 import Cards from "../components/Global/cards";
 import SectionHeader from "../components/Global/section-header";
-import FutureFinance from "../components/Home/future-finance";
+import SectionIntro from "../components/Home/section-intro";
 import AboutUsInfiniteScroll from "../components/About-us/about-us-infinite-scroll";
 import OurMission from "../components/About-us/our-mission";
 import { SectionTitle } from "@/libs/utlis/section-title";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About us",
+};
 
 export default function AboutUs() {
   return (
@@ -14,7 +19,7 @@ export default function AboutUs() {
         title="Paving the way ahead for finance"
         description="We’re building technologies that will power the future of banking and beyond"
       />
-      <FutureFinance
+      <SectionIntro
         subHeader="OUR STORY"
         header="Building the future today"
         descriptionParaTwo="Founded in January 2020, Any Technology is a Singapore-based fintech enterprise committed to helping the global financial services industry reimagine banking and payment services."
@@ -33,7 +38,7 @@ export default function AboutUs() {
         className="items-start"
       />
 
-      <FutureFinance
+      <SectionIntro
         subHeader="Our Founder"
         header="A trailblazer in finance"
         descriptionParaOne="Her unwavering dedication to innovation and impactful leadership has been instrumental in shaping the industry and driving the creation of pragmatic and user-centric financial technologies."

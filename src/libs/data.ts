@@ -158,6 +158,88 @@ export const ABOUT_US_CARDS_VALUES: ICardsData[] = [
   },
 ];
 
+export const ANYSASS_FEATURES_CARDS: ICardsData[] = [
+  {
+    icon: Flame,
+    iconBackground: "#FFE2D5",
+    title: "Driven",
+    description:
+      "Motivated by a desire for change, we empower our customers by tenaciously striving for breakthroughs in financial services.",
+  },
+  {
+    icon: Zap,
+    iconBackground: "#FFE2D4",
+    title: "agile",
+    description:
+      "Our agility helps us stay one step ahead, where we embrace change and swiftly adapt in order to deliver cutting-edge solutions.",
+  },
+  {
+    icon: Globe,
+    iconBackground: "#B9D9FF",
+    title: "global",
+    description:
+      "We think beyond borders, with a commitment to creating financial technological solutions that empower banks and financial institutions across the world.",
+  },
+  {
+    icon: Users,
+    iconBackground: "#E8F2FE",
+    title: "open",
+    description:
+      "n a world of possibilities, our openness leads us to discover new ideas, fostering creativity and inspiring transformative solutions.",
+  },
+  {
+    icon: Flame,
+    iconBackground: "#FFE2D5",
+    title: "Driven",
+    description:
+      "Motivated by a desire for change, we empower our customers by tenaciously striving for breakthroughs in financial services.",
+  },
+  {
+    icon: Zap,
+    iconBackground: "#FFE2D4",
+    title: "agile",
+    description:
+      "Our agility helps us stay one step ahead, where we embrace change and swiftly adapt in order to deliver cutting-edge solutions.",
+  },
+];
+export const ANYSASS_BENIFITS_CARDS: ICardsData[] = [
+  {
+    icon: Flame,
+    iconBackground: "#FFE2D5",
+    title: "Driven",
+    description:
+      "Motivated by a desire for change, we empower our customers by tenaciously striving for breakthroughs in financial services.",
+  },
+  {
+    icon: Zap,
+    iconBackground: "#FFE2D4",
+    title: "agile",
+    description:
+      "Our agility helps us stay one step ahead, where we embrace change and swiftly adapt in order to deliver cutting-edge solutions.",
+  },
+  {
+    icon: Globe,
+    iconBackground: "#B9D9FF",
+    title: "global",
+    description:
+      "We think beyond borders, with a commitment to creating financial technological solutions that empower banks and financial institutions across the world.",
+  },
+  {
+    icon: Users,
+    iconBackground: "#E8F2FE",
+    title: "open",
+    description:
+      "n a world of possibilities, our openness leads us to discover new ideas, fostering creativity and inspiring transformative solutions.",
+  },
+  {
+    icon: Flame,
+    iconBackground: "#FFE2D5",
+    title: "Driven",
+    description:
+      "Motivated by a desire for change, we empower our customers by tenaciously striving for breakthroughs in financial services.",
+  },
+];
+
 export const TABS = [
   {
     id: "customer",
