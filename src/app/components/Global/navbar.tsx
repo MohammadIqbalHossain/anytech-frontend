@@ -206,7 +206,7 @@ const Navbar = () => {
 
             {/* Contact Button - Mobile */}
             <Link
-              href="#"
+              href="/contact-us"
               className="flex items-center mt-4 justify-center gap-2 bg-[#FE8B53] text-white px-4 py-2 rounded text-center hover:bg-[#FE8B53] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
