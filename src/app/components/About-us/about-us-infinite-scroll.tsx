@@ -11,7 +11,7 @@ export default function AboutUsInfiniteScroll() {
         height={100}
         className="absolute top-0 left-0 mb-10"
       ></Image>
-      <div className="text-3xl font-extrabold border-b border-blue-200 pb-10">
+      <div className="lg:text-5xl font-extrabold border-b border-blue-200 pb-10">
         Empowering more than{" "}
         <span className="text-blue-600 font-bold">
           40 financial institutions

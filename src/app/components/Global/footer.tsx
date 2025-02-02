@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { WaveLines } from "../Home/web-lines";
+import { WaveLines } from "../Home/wave-lines";
 import { ChevronRight } from "lucide-react";
 
 export default function Footer() {

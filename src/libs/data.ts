@@ -1,14 +1,20 @@
 import {
   BookImage,
   Brain,
+  ChartLine,
   ChevronsLeftRightEllipsis,
   ClockArrowUp,
   Cpu,
+  Database,
+  Flame,
   GitBranch,
+  Globe,
   Lightbulb,
   LucideProps,
   Monitor,
   MonitorSmartphone,
+  Users,
+  Zap,
 } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import customerImg from "../../public/Assets/carousel/customer.avif";
@@ -94,6 +100,61 @@ export const SERVICES_CARDS_IMPLEMENT: ICardsData[] = [
     title: "System Migration",
     description:
       "We seamlessly combine cutting-edge technologies, resulting in an unparalleled fintech experience for financial institutions.",
+  },
+];
+
+export const ABOUT_US_CARDS_STORY: ICardsData[] = [
+  {
+    icon: ChartLine,
+    iconBackground: "#D7F8F9",
+    title: "Experts in technology and finance",
+    description:
+      "With our team's deep expertise in the finance and tech sectors, we are catalysts for change, paving the way for innovation and strategic reorientation, shaping the future of finance.",
+  },
+  {
+    icon: Database,
+    iconBackground: "#FFE2D4",
+    title: "Empowerment through technology",
+    description:
+      "Empowering more than 40 financial institutions to transform in a digital-first world, our innovative platform enables banks and financial institutions to develop customer-centric financial products and offerings.",
+  },
+  {
+    icon: Users,
+    iconBackground: "#E8F2FE",
+    title: "Understanding evolving needs",
+    description:
+      "By staying at the forefront of technology and understanding the evolving needs of the industry, we strive to provide cutting-edge solutions that drive efficiency, enhance user experiences, and enable financial inclusion.",
+  },
+];
+
+export const ABOUT_US_CARDS_VALUES: ICardsData[] = [
+  {
+    icon: Flame,
+    iconBackground: "#FFE2D5",
+    title: "Driven",
+    description:
+      "Motivated by a desire for change, we empower our customers by tenaciously striving for breakthroughs in financial services.",
+  },
+  {
+    icon: Zap,
+    iconBackground: "#FFE2D4",
+    title: "agile",
+    description:
+      "Our agility helps us stay one step ahead, where we embrace change and swiftly adapt in order to deliver cutting-edge solutions.",
+  },
+  {
+    icon: Globe,
+    iconBackground: "#B9D9FF",
+    title: "global",
+    description:
+      "We think beyond borders, with a commitment to creating financial technological solutions that empower banks and financial institutions across the world.",
+  },
+  {
+    icon: Users,
+    iconBackground: "#E8F2FE",
+    title: "open",
+    description:
+      "n a world of possibilities, our openness leads us to discover new ideas, fostering creativity and inspiring transformative solutions.",
   },
 ];
 

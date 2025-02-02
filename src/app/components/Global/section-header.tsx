@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { WaveLines } from "../Home/web-lines";
+import { WaveLines } from "../Home/wave-lines";
 
 interface ISectionHeader {
   subtitle?: string;
@@ -25,7 +25,7 @@ export default function SectionHeader({
       <WaveLines />
 
       {/* Content */}
-      <div className="relative max-w-5xl">
+      <div className="relative max-w-5xl ">
         <span className="text-xl font-bold text-[#00DFE0]">{subtitle}</span>
         <motion.div
           variants={{

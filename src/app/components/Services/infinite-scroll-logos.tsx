@@ -52,7 +52,7 @@ export default function InfiniteLogoScroll() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-blue-600 font-medium text-center mb-16"
+          className="text-blue-600 font-medium text-center"
         >
           TRUSTED BY THE BEST
         </motion.p>

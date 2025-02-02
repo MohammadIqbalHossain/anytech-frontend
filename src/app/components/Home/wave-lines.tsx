@@ -66,7 +66,7 @@ export function WaveLines() {
   // Initial render with static waves
   if (!isMounted) {
     return (
-      <div className="absolute inset-0 overflow-hidden opacity-0">
+      <div className="absolute inset-0 overflow-hidden opacity-0 bg-[#584747]">
         {/* Desktop wave lines */}
         <div className="hidden lg:block">
           <div className="absolute inset-0">

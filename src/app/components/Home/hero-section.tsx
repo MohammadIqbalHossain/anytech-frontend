@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import heroImage from "../../../../public/Assets/hero-image .jpg";
-import { WaveLines } from "./web-lines";
+import { WaveLines } from "./wave-lines";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
