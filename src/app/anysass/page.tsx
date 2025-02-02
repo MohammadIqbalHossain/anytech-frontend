@@ -50,7 +50,7 @@ export default function AnySass() {
       />
       <InfiniteLogoScroll />
 
-      <div className="flex max-w-6xl mx-auto gap-10">
+      <div className="flex max-w-6xl mx-auto gap-10 flex-wrap">
         <BankingCard
           title="Banking redesigned for innovation"
           description="Dive into the future of banking with our Banking-as-a-Service (BaaS) platform that gives you the tools you need to scale, innovate and adapt in today's fast-paced digital environment."
